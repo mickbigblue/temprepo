@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dai.asf</groupId>
+    <artifactId>pfm-client</artifactId>
+    <version>2.4.0-SNAPSHOT</version>
+    <packaging>pom</packaging> <!-- Set the packaging to "pom" since we're not creating a WAR with Maven -->
+
+    <properties>
+        <!-- Custom Settings -->
+        <related.marketing.version>25.1.4.0</related.marketing.version>
+
+        <!-- Dependency Information -->
+        <versions-maven-plugin-version>2.16.2</versions-maven-plugin-version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin-version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>jfrog-pfm-client-mirror</id>
+            <url>https://artifacts.i.mercedes-benz.com/artifactory/asf-maven-local</url>
+        </repository>
+    </distributionManagement>
+
+</project>
+

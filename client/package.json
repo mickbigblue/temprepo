@@ -1,0 +1,82 @@
+{
+  "name": "pfm_client",
+  "version": "2.0.1-SNAPSHOT",
+  "private": false,
+  "homepage": ".",
+  "proxy": "http://localhost:8080",
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.16.14",
+    "@mui/material": "^5.16.14",
+    "@mui/x-data-grid-premium": "^7.24.1",
+    "@mui/x-date-pickers": "^7.2.0",
+    "@rpldy/upload-button": "^1.8.1",
+    "@rpldy/uploader": "^1.8.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.2",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.7",
+    "@types/papaparse": "^5.3.14",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "@types/react-router-dom": "^5.3.3",
+    "date-fns": "^3.6.0",
+    "history": "^5.3.0",
+    "i18next": "^23.11.2",
+    "i18next-browser-languagedetector": "^7.2.1",
+    "js-cookie": "^3.0.5",
+    "papaparse": "^5.4.1",
+    "query-string": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.6",
+    "react-i18next": "^14.1.0",
+    "react-router-dom": "^6.22.3",
+    "uuid": "^9.0.1",
+    "web-vitals": "^3.5.2",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.24.1",
+    "@rpldy/upload-drop-zone": "^1.8.1",
+    "@rpldy/uploady": "^1.8.1",
+    "@types/js-cookie": "^3.0.6",
+    "@types/uuid": "^9.0.8",
+    "prettier": "3.2.5",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "extract-version": "node --experimental-modules extract-version.mjs",
+    "package": "npm run extract-version && npm run build && jar -cvf pfm-client.war -C build .",
+    "package:dev": "npm run extract-version && npm run build && jar -cvf pfm-client-pinky.war -C build . && explorer.exe .",
+    "maven-deploy": "mvn deploy:deploy-file -DgroupId=com.dai.asf -DartifactId=pfm-client -Dversion=2.0.1-SNAPSHOT -Dpackaging=war -Dfile=pfm-client.war -Durl=https://artifacts.i.mercedes-benz.com/artifactory/asf-maven-local -DrepositoryId=jfrog-pfm-client-mirror",
+    "deploy": "npm run package && npm run maven-deploy",
+    "tsc": "tsc"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 edge version"
+    ]
+  }
+}
